@@ -1,5 +1,3 @@
-# -*- coding: cp1251 -*-
-
 """This class made dict where, size of pallet(size) = key, value of products(how_much) = key value
    and muchs of pallets we need(pallets) = pallets"""
 global pallets
@@ -12,9 +10,5 @@ def calculator(how_much, size):
         print "for this product you need ", pallets, " pallets"
         return pallets
     else:
-        print "Вы ввели отрицательное число"
-
-
-
-
-
+        print "Вы ввели неверное число"
+        return 0
