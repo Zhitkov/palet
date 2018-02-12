@@ -1,4 +1,4 @@
-
+# -*- coding: cp1251 -*-
 import pytest
 from palet import calculator
 
@@ -14,8 +14,7 @@ from palet import calculator
 def test_negative_Zero_and_spec_symbols_regress_out__case_0001(how_much, size):
                 with pytest.raises(TypeError):
                         calculator(how_much, size)
-                        myError = TypeError('fun considers zero')
-                        raise myError
+                        raise TypeError('fun considers zero')
 
 
 @pytest.mark.parametrize("how_much, size", [
@@ -25,8 +24,7 @@ def test_negative_Zero_and_spec_symbols_regress_out__case_0001(how_much, size):
 def test__negative_char_regress_out__case_0002(how_much, size):
         with pytest.raises(TypeError):
                 calculator(how_much, size)
-                myError = TypeError('fun considers string')
-                raise myError
+                raise TypeError('fun considers string')
 
 
 @pytest.mark.parametrize("how_much, size", [
@@ -37,8 +35,7 @@ def test__negative_char_regress_out__case_0002(how_much, size):
 def test_negative_float_regress_out__case_0003(how_much, size):
         with pytest.raises(TypeError):
                 calculator(how_much, size)
-                myError = TypeError('fun considers float')
-                raise myError
+                raise TypeError('fun considers float')
 
 
 @pytest.mark.parametrize("how_much, size", [
@@ -49,28 +46,16 @@ def test_negative_float_regress_out__case_0003(how_much, size):
     ])
 def test_negative_int_regress_out__case_0004(how_much, size):
         with pytest.raises(ZeroDivisionError):
-                calculator(how_much, size)
-                myError = ZeroDivisionError('fun considers negative int')
-                raise myError
+            calculator(how_much, size)
+            raise ZeroDivisionError('fun considers negative int')
 
-
-@pytest.mark.parametrize("how_much, size", [
-    (125, 5),
-    (123, 5)
-    ])
-def test_positive_int_regress_out__case_0005(how_much, size):
-        with pytest.raises(ValueError):
-                if how_much and size > 0:
-                        myError = ValueError('fun is incorect with possitive int')
-                        raise myError
-                        print(show_much, size)
 
 @pytest.mark.parametrize("how_much, size", [
     (126, 5),
     (123, 7),
     ])
 def test_positive_int_regress_out__case_0007(how_much, size):
-        a = 0
+        a = (how_much / size) + 1
         b = calculator(how_much, size)
         assert a == b, "fun is incorect considers"
 
@@ -92,5 +77,4 @@ def test_positive_int_regress_out__case_0008(how_much, size):
 def test_pallet_too_big_regress_out__case_0009(how_much, size):
         with pytest.raises(ZeroDivisionError):
                 calculator(how_much, size)
-                myError = ZeroDivisionError('fun considers negative int')
-                raise myError
+                raise ZeroDivisionError('fun considers negative int')
